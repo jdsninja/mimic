@@ -8,7 +8,8 @@
   },
   "devDependencies": {
     "browserify": "^11.0.1",
-    "es6ify": "^1.6.0"
+    "es6ify": "^1.6.0",
+    "watch": "^0.16.0"
   },
   "scripts": {
     "compile": "babel --modules common src/js/mimic.js > dist/js/mimic.js",
