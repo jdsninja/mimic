@@ -1,0 +1,27 @@
+{
+  "name": "mimic",
+  "version": "1.0.0",
+  "description": "TDB",
+  "main": "src/js/mimic.js",
+  "dependencies": {
+    "babel": "^5.8.21"
+  },
+  "devDependencies": {
+    "browserify": "^11.0.1",
+    "es6ify": "^1.6.0"
+  },
+  "scripts": {
+    "compile": "babel --modules common src/js/mimic.js > dist/js/mimic.js",
+    "build": "browserify -t es6ify src/js/mimic.js -o dist/js/mimic.js && open index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jeromeds/mimic.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jeromeds/mimic/issues"
+  },
+  "homepage": "https://github.com/jeromeds/mimic"
+}
