@@ -1,5 +1,5 @@
-let Config = require('./config');
+import config from './config';
 
-module.exports = function() {
-  // todo: code
+global.Mimic = function () {
+  console.log(config);
 };

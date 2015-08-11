@@ -1,3 +1,2 @@
-module.exports = {
-  // todo: config
-}
+let config = 'test';
+export default config;
