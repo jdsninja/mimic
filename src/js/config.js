@@ -1,2 +1,2 @@
-let config = 'test';
+let config = {};
 export default config;

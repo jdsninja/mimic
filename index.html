@@ -4,14 +4,14 @@
 <meta charset=utf-8>
 <title>tests</title>
 </head>
-<body style="height:1000px;">
-
-<div ondblclick="return logMouseMove(event)" onclick="return logMouseMove(event)"></div>
-
-
+<body>
+<div id="stage" style="width:800px; height:600px; background:lightblue;position:absolute"></div>
 <script src="dist/js/mimic.js"></script>
 <script>
-  Mimic();
+  var mimic = new Mimic({
+    container: "stage"
+  });
+  mimic.init('test');
 </script>
 </body>
 </html>
