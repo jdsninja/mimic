@@ -18,6 +18,7 @@ class Mimic {
   init() {
     var keyboard = new Keyboard();
     var mouse = new Mouse(this.container);
+    var scroll = new Scroll();
   }
 };
 
