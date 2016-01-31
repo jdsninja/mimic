@@ -1,7 +1,6 @@
-const Timer = () => {
+export default () => {
   return {
     init: () => {
     }
   };
 };
-export default Timer;

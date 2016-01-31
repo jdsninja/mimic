@@ -6,23 +6,21 @@ import Scroll from './scroll';
 import Timer from './timer';
 
 const App = (params) => {
-  return {
-    /*const container = document.getElementById(params.container);
-    var keyboard = new Keyboard();
+  const init = () => {
+    Keyboard(params).init();
+    Mouse(params).init();
+    Scroll(params).init();
+  };
 
-    var mouse = new Mouse(container);
-    var scroll = new Scroll();*/
-    init: () => {
-      Keyboard().init();
-      console.log('asdf');
-    }
+  return {
+    init
   };
 };
 
 
 //global.Mimic = Mimic;
 App({
-  container: 'stage'
+  containerId: 'stage'
 }).init();
 export default App;
 /*

@@ -1,13 +1,14 @@
-const Keyboard = () => {
+import { onkeydown } from './events';
+import Recorder from './recorder';
+
+export default (props) => {
+  const init = () => {
+    onkeydown(props, (e) => {
+      Recorder().record(`k:${e.keyCode}`);
+      //console.log(e.charCode, e.keyCode, String.fromCharCode(e.keyCode));
+    });
+  };
   return {
-    init: () => {
-      document.body.addEventListener('keydown', function (event) {
-        // if (!event) {
-        //   event = window.event; // need to double check what this does exactly
-        // }
-        console.log(event.charCode, event.keyCode, String.fromCharCode(event.keyCode));
-      });
-    }
+    init
   };
 };
-export default Keyboard;
