@@ -1,20 +1,25 @@
-'use strict';
+import Recorder from './recorder';
+import moment from 'moment';
 
-export default class Mouse {
-  constructor(container) {
-    // Mouse
-    container.onmousemove = function(e){
-      console.log('x',e.pageX, ', y',e.pageY);
-    }
+const Mouse = (container) => {
+  return {
+    init: () => {
+      // Mouse
+      container.onmousemove = function(e){
+        Recorder().record(`${moment().format('hh:mm:ss')}|mm|${e.pageX}:${e.pageY}`);
+      }
 
-    // Mouse Double click
-    container.ondblclick = function(e){
-      console.log('doubleclick');
-    }
+      // Mouse Double click
+      container.ondblclick = function(e){
+        Recorder().record(`${moment().format('hh:mm:ss')}|dc`);
+      }
 
-    // Mouse Click
-    container.onclick = function(e){
-      console.log('click');
+      // Mouse Click
+      container.onclick = function(e){
+        Recorder().record(`${moment().format('hh:mm:ss')}|c`);
+      }
     }
   }
 }
+
+export default Mouse;

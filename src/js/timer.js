@@ -1,6 +1,4 @@
-'use strict';
 
-export default class Timer {
-  constructor() {
-  }
+export const Timer = () => {
+
 }
