@@ -10,7 +10,7 @@ const Mimic = (params) => {
   const container = document.getElementById(params.container);
   return {
     init: () => {
-      Recorder().record(`${moment().format('hh:mm:ss')}|start`);
+      //Recorder().record(`${moment().format('hh:mm:ss')}|start`);
       Keyboard().init();
       Mouse(container).init();
       Scroll().init();

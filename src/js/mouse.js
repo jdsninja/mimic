@@ -2,21 +2,22 @@ import Recorder from './recorder';
 import moment from 'moment';
 
 const Mouse = (container) => {
+  const recorder = Recorder('mouse');
   return {
     init: () => {
       // Mouse
-      container.onmousemove = function(e){
-        Recorder().record(`${moment().format('hh:mm:ss')}|mm|${e.pageX}:${e.pageY}`);
+      container.onmousemove = (e) => {
+        recorder.record([moment().unix(), e]);
       }
 
       // Mouse Double click
-      container.ondblclick = function(e){
-        Recorder().record(`${moment().format('hh:mm:ss')}|dc`);
+      container.ondblclick = (e) => {
+        recorder.record([moment().unix(), e]);
       }
 
       // Mouse Click
-      container.onclick = function(e){
-        Recorder().record(`${moment().format('hh:mm:ss')}|c`);
+      container.onclick = (e) => {
+        recorder.record([moment().unix(), e]);
       }
     }
   }
