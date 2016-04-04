@@ -1,4 +1,6 @@
 import Data from '../db/eventsLog';
+import moment from 'moment';
+
 const Recorder = (type) => {
   let timer = setTimeout(stopRecording, 3000),
       recording = false,
@@ -21,7 +23,9 @@ const Recorder = (type) => {
 
   return {
     record: (input) => {
-      Data[type].push(input);
+      console.log(type, input);
+      const timestamp = moment().unix();
+      Data[type].push({timestamp, event: input});
       if (recording) {
         // Reset the timer if we are currently recording somethign
         resetTimer();

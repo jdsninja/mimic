@@ -1,5 +1,4 @@
 import Recorder from './recorder';
-import moment from 'moment';
 
 const Mouse = (container) => {
   const recorder = Recorder('mouse');
@@ -7,17 +6,17 @@ const Mouse = (container) => {
     init: () => {
       // Mouse
       container.onmousemove = (e) => {
-        recorder.record([moment().unix(), e]);
+        recorder.record(e);
       }
 
       // Mouse Double click
       container.ondblclick = (e) => {
-        recorder.record([moment().unix(), e]);
+        recorder.record(e);
       }
 
       // Mouse Click
       container.onclick = (e) => {
-        recorder.record([moment().unix(), e]);
+        recorder.record(e);
       }
     }
   }
