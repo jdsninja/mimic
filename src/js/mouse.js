@@ -2,24 +2,32 @@ import Recorder from './recorder';
 
 const Mouse = (container) => {
   const recorder = Recorder('mouse');
-  return {
-    init: () => {
-      // Mouse
-      container.onmousemove = (e) => {
-        recorder.record(e);
-      }
 
-      // Mouse Double click
-      container.ondblclick = (e) => {
-        recorder.record(e);
-      }
-
-      // Mouse Click
-      container.onclick = (e) => {
-        recorder.record(e);
-      }
+  const startRecording = (recording, e) => {
+    if (recording) {
+      recorder.record(e);
     }
-  }
+  };
+
+  const initRecorder = (recording) => {
+    // Mouse mouve
+    container.onmousemove = (e) => startRecording(recording, e);
+
+    // Mouse Double click
+    container.ondblclick = (e) => startRecording(recording, e);
+
+    // Mouse Click
+    container.onclick = (e) => startRecording(recording, e);
+  };
+
+    const record = () => initRecorder(true);
+
+    const stop = () => initRecorder(false);
+
+    return {
+      record,
+      stop
+    }
 }
 
 export default Mouse;

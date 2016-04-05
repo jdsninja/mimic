@@ -1,7 +1,8 @@
 import Recorder from './recorder';
 
 const Scroll = () => {
-  var B = document.body,
+  const recorder = Recorder('scroll');
+  let B = document.body,
       H = document.documentElement,
       height
 
@@ -11,10 +12,10 @@ const Scroll = () => {
     height = Math.max( B.scrollHeight, B.offsetHeight,H.clientHeight, H.scrollHeight, H.offsetHeight );
   }
 
-  return {
-    init: () => {
-      document.onscroll = (e) => {
-        Recorder('scroll').record([moment().unix(), e]);
+  const initRecorder = (recording) => {
+    document.onscroll = (e) => {
+      if (recording) {
+        recorder.record(e);
         if(window.scrollY === 0){
           console.log('page top');
         }else if(height === window.scrollY +  H.clientHeight){
@@ -22,8 +23,17 @@ const Scroll = () => {
         }else{
           console.log('scrolling');
         }
-      };
-    }
+      }
+    };
+  };
+
+  const record = () => initRecorder(true);
+
+  const stop = () => initRecorder(false);
+
+  return {
+    record,
+    stop
   }
 }
 export default Scroll;
