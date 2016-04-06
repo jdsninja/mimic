@@ -5,6 +5,7 @@ const Recorder = (type) => {
 
   const record = (input) => {
     const t = moment().unix();
+    console.log(input);
     Data[type].push({t, event: input});
   }
 

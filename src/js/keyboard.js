@@ -1,28 +1,27 @@
-import Recorder from './recorder';
+import Listener from './listener';
 
-const Keyboard = () => {
+const recording = (state) => ({
+  record: () => {
+    state.isRecording = true;
+  }
+});
 
-  const recorder = Recorder('keyboard');
+const stoping = (state) => ({
+  stop: () => state.isRecording = false
+});
 
-  const initRecorder = (recording) => {
-    document.onkeydown = (e) => {
-      if (!e) {
-        event = window.event; // need to double check what this does exactly
-      }
-      //event.charCode, event.keyCode, String.fromCharCode(event.keyCode)
-      if (recording) {
-        recorder.record(e);
-      }
-    };
+export default (container) => {
+  let state = {
+    container,
+    isRecording: false,
+    parent: document,
+    events: ['onkeydown']
   };
 
-  const record = () => initRecorder(true);
-
-  const stop = () => initRecorder(false);
-
-  return {
-    record,
-    stop
-  }
+  return Object.assign(
+    {},
+    recording(state),
+    stoping(state),
+    Listener(state)
+  );
 }
-export default Keyboard;

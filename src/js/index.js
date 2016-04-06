@@ -1,6 +1,7 @@
 import Keyboard from './keyboard';
 import Mouse from './mouse';
 import Recorder from './recorder';
+import Data from '../db/eventsLog';
 
 const Mimic = (params) => {
   const container = document.getElementById(params.container),
@@ -11,12 +12,16 @@ const Mimic = (params) => {
   const startRecording = () => {
     recorder.record('Start recording');
     keyboard.record();
+    keyboard.update();
     mouse.record();
+    mouse.update();
   }
 
   const stopRecording = () => {
     keyboard.stop();
+    keyboard.update();
     mouse.stop();
+    mouse.update();
     recorder.record('Stop recording');
   }
 

@@ -1,33 +1,27 @@
-import Recorder from './recorder';
+import Listener from './listener';
 
-const Mouse = (container) => {
-  const recorder = Recorder('mouse');
+const recording = (state) => ({
+  record: () => {
+    state.isRecording = true;
+  }
+});
 
-  const startRecording = (recording, e) => {
-    if (recording) {
-      recorder.record(e);
-    }
+const stoping = (state) => ({
+  stop: () => state.isRecording = false
+});
+
+export default (container) => {
+  let state = {
+    container,
+    isRecording: false,
+    parent: container,
+    events: ['onmousemove', 'ondblclick', 'onclick']
   };
 
-  const initRecorder = (recording) => {
-    // Mouse mouve
-    container.onmousemove = (e) => startRecording(recording, e);
-
-    // Mouse Double click
-    container.ondblclick = (e) => startRecording(recording, e);
-
-    // Mouse Click
-    container.onclick = (e) => startRecording(recording, e);
-  };
-
-    const record = () => initRecorder(true);
-
-    const stop = () => initRecorder(false);
-
-    return {
-      record,
-      stop
-    }
+  return Object.assign(
+    {},
+    recording(state),
+    stoping(state),
+    Listener(state)
+  );
 }
-
-export default Mouse;
