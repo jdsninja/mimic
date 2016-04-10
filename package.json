@@ -4,14 +4,14 @@
   "description": "TDB",
   "main": "src/js/mimic.js",
   "scripts": {
-    "clean": "rimraf build",
+    "clean": "rm -rf build || true",
     "build:webpack": "webpack --config webpack.config.prod.js",
     "build": "npm run clean && npm run build:webpack",
     "start": "NODE_PATH='src' node server.js",
     "debug": "NODE_PATH='src' echo 'Nothing? `npm install -g iron-node`' && iron-node src/debug.js",
     "lint": "eslint src",
     "pretest": "npm run lint",
-    "test": "NODE_PATH='src' babel-node src/test/index.js",
+    "test": "babel-node ./src/js/test/*-test.js | faucet",
     "watch": "watch 'clear && npm run test -s' src",
     "update": "updtr"
   },
@@ -24,5 +24,12 @@
   "bugs": {
     "url": "https://github.com/jeromeds/mimic/issues"
   },
-  "homepage": "https://github.com/jeromeds/mimic"
+  "homepage": "https://github.com/jeromeds/mimic",
+  "devDependencies": {
+    "babel-tape-runner": "^2.0.1",
+    "tape": "^4.5.1"
+  },
+  "dependencies": {
+    "source-map-support": "^0.4.0"
+  }
 }

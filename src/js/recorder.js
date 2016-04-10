@@ -1,4 +1,4 @@
-import Data from '../db/eventsLog';
+import Data from '../db/eventsLog.js';
 import moment from 'moment';
 
 const Recorder = (type) => {
@@ -7,10 +7,10 @@ const Recorder = (type) => {
     const t = moment().unix();
     console.log(input);
     Data[type].push({t, event: input});
-  }
+  };
 
   return {
     record
-  }
-}
+  };
+};
 export default Recorder;

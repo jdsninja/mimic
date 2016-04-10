@@ -4,23 +4,23 @@ const Scroll = () => {
   const recorder = Recorder('scroll');
   let B = document.body,
       H = document.documentElement,
-      height
+      height;
 
   if (typeof document.height !== 'undefined') {
-    height = document.height // For webkit browsers
+    height = document.height; // For webkit browsers
   } else {
-    height = Math.max( B.scrollHeight, B.offsetHeight,H.clientHeight, H.scrollHeight, H.offsetHeight );
+    height = Math.max( B.scrollHeight, B.offsetHeight, H.clientHeight, H.scrollHeight, H.offsetHeight );
   }
 
   const initRecorder = (recording) => {
     document.onscroll = (e) => {
       if (recording) {
         recorder.record(e);
-        if(window.scrollY === 0){
+        if (window.scrollY === 0) {
           console.log('page top');
-        }else if(height === window.scrollY +  H.clientHeight){
+        } else if (height === window.scrollY + H.clientHeight) {
           console.log('page bottom');
-        }else{
+        } else {
           console.log('scrolling');
         }
       }
@@ -34,6 +34,6 @@ const Scroll = () => {
   return {
     record,
     stop
-  }
-}
+  };
+};
 export default Scroll;
