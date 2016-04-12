@@ -2,7 +2,7 @@ import Recorder from './recorder';
 
 const updateListener = (state) => ({
   update: () => {
-    const { container, isRecording, events, parent } = state,
+    const { isRecording, events, parent } = state,
           recorder = Recorder('mouse');
     events.forEach( x => {
         parent[x] = (e) => isRecording ? recorder.record(e) : '';

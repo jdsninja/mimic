@@ -24,4 +24,4 @@ export default (container) => {
     stoping(state),
     Listener(state)
   );
-}
+};

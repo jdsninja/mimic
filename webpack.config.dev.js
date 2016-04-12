@@ -4,19 +4,11 @@ var webpack = require('webpack');
 module.exports = {
   devtool: 'eval',
   resolve: {
-<<<<<<< HEAD
     root: __dirname + '/src'
   },
   entry: [
     'webpack-hot-middleware/client',
     './src/js/index'
-=======
-    root: __dirname + '/source'
-  },
-  entry: [
-    'webpack-hot-middleware/client',
-    './source/index'
->>>>>>> master
   ],
   output: {
     path: path.join(__dirname, 'build'),
@@ -28,7 +20,6 @@ module.exports = {
     new webpack.NoErrorsPlugin()
   ],
   module: {
-<<<<<<< HEAD
     devtool: 'source-map',
     loaders: [
       {
@@ -36,7 +27,6 @@ module.exports = {
         loader: 'babel-loader',
         include: path.join(__dirname, 'src'),
         query: {
-          plugins: ['transform-decorators-legacy' ],
           presets: ['es2015', 'stage-1', 'react']
         }
       },
@@ -53,15 +43,5 @@ module.exports = {
   },
   sassLoader: {
     includePaths: [path.resolve(__dirname, './')]
-=======
-    loaders: [{
-      test: /\.js$/,
-      loader: 'babel-loader',
-      include: path.join(__dirname, 'source'),
-      query: {
-        presets: ['es2015']
-      }
-    }]
->>>>>>> master
   }
 };

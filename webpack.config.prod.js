@@ -4,17 +4,10 @@ var webpack = require('webpack');
 module.exports = {
   devtool: 'source-map',
   resolve: {
-<<<<<<< HEAD
     root: __dirname + '/src'
   },
   entry: [
     './src/index'
-=======
-    root: __dirname + '/source'
-  },
-  entry: [
-    './source/index'
->>>>>>> master
   ],
   output: {
     path: path.join(__dirname, 'build'),
@@ -35,7 +28,6 @@ module.exports = {
     })
   ],
   module: {
-<<<<<<< HEAD
     loaders: [
       {
         test: /\.js$/,
@@ -55,15 +47,5 @@ module.exports = {
         loader: 'url?limit=25000'
       }
     ]
-=======
-    loaders: [{
-      test: /\.js$/,
-      loader: 'babel-loader',
-      include: path.join(__dirname, 'source'),
-      query: {
-        presets: ['es2015']
-      }
-    }]
->>>>>>> master
   }
 };
