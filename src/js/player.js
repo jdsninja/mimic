@@ -12,21 +12,22 @@ export default () => {
     const t = Date.now();
     let now = t;
     const newData = {};
+    console.log(Data);
 
-    Object.keys(Data).map( x => {
-      Data[x].map( y => {
-        newData[parseInt(y.t)] = y.event;
-      });
-    });
+    // Object.keys(Data).map( x => {
+    //   Data[x].map( y => {
+    //     newData[parseInt(y.t)] = y.event;
+    //   });
+    // });
 
     // Recording stats
-    const objKeys = Object.keys(newData),
-          startTime = objKeys[0], // When the recording started
-          endTime = objKeys[objKeys.length - 1], // When the recording ended
-          duration = moment().milliseconds(startTime).diff(moment().milliseconds(endTime), 'seconds');
-
-
-    setInterval(() => { findNextEvent(newData, now += delay); }, delay);
+    // const objKeys = Object.keys(newData),
+    //       startTime = objKeys[0], // When the recording started
+    //       endTime = objKeys[objKeys.length - 1], // When the recording ended
+    //       duration = moment().milliseconds(startTime).diff(moment().milliseconds(endTime), 'seconds');
+    //
+    //
+    // setInterval(() => { findNextEvent(newData, now += delay); }, delay);
   };
 
   return {
