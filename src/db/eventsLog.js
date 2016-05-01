@@ -1,6 +1,1 @@
-export default {
-  'session': [],
-  'mouse': [],
-  'keyboard': [],
-  'scroll': []
-};
+export default {};
