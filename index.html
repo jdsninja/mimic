@@ -3,6 +3,11 @@
 <head>
 <meta charset=utf-8>
 <title>Mimic</title>
+<style type="text/css">
+#mouse{
+  width:20px;height:20px;background-color:orange;position:absolute;
+}
+</style>
 </head>
 <body>
 <div id="stage" style="width:800px; height:600px; background:lightblue;position:absolute">
@@ -11,6 +16,7 @@
   <button id="play">Play</button>
   <button id="pause">Pause</button>
 </div>
+<div id="mouse"></div>
 <script src="./static/index.js"></script>
 <script>
   var mimic = new Mimic({
